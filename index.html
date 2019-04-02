@@ -801,6 +801,7 @@
   });*/
           </script>
           <script src="js/controller/exams.js"></script>
+          <script src="js/controller/print.js"></script>
   </head>
   <body ng-controller="ExamsCtrl">
     <div id="adminWrapper">
@@ -818,39 +819,42 @@
                  <span ng-show="IsNotFound"  align="right"><h3>الرقم الجامعي غير صحيح</h3></span>
 
       </form>
-      <div id="fin" >
+      <div id="fin" ng-controller="PrintCtrl">
+        <button ng-click="printToCart('printSectionId')" class="button">طباعة</button>
         <p>الفصل الدراسي الثاني</p>
         <p>١٤٣٩/ ١٤٤٠ هـ</p>
       </div>
 
     </nav>
-    <main>
+    <div id="printSectionId">
+      <main>
 
 
-<h1 align="center" >جدول الاختبارات النهائية للفصل الثاني ١٤٣٩/ ١٤٤٠ هـ</h1>
-            <table ng-hide="IsEmpty"  class="borderTable">
-              <center><h2  ng-hide="IsEmpty">{{result[0].name}}</h2></center>
-              <center><h3  ng-hide="IsEmpty">التخصص : {{result[0].spec}}</h3></center>
-                        <thead  class="list-header">
-                            <tr  align="center"  bgcolor="#ccccd8"  font-weight="bold" >
-                                <th>القاعة</th><th>التوقيت</th><th>التاريخ </th><th>الشعبة</th><th> الحالة</th><th>المقرر</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="item in result | orderBy : 'date' " align="center" style="{{item.status == 'محروم'  || item.status == 'منسحب' ? 'background-color: red' : ''}}">
-                                <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td>
-                                <td>{{item.section}}</td><td>{{item.status}}</td><td>{{item.course}}</td>
+          <h1 align="center" >جدول الاختبارات النهائية للفصل الثاني ١٤٣٩/ ١٤٤٠ هـ</h1>
+              <table ng-hide="IsEmpty"  class="borderTable">
+                <center><h2  ng-hide="IsEmpty">{{result[0].name}}</h2></center>
+                <center><h3  ng-hide="IsEmpty">التخصص : {{result[0].spec}}</h3></center>
+                          <thead  class="list-header">
+                              <tr  align="center"  bgcolor="#ccccd8"  font-weight="bold" >
+                                  <th>القاعة</th><th>التوقيت</th><th>التاريخ </th><th>الشعبة</th><th> الحالة</th><th>المقرر</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="item in result | orderBy : 'date' " align="center" style="{{item.status == 'محروم'  || item.status == 'منسحب' ? 'background-color: red' : ''}}">
+                                  <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td>
+                                  <td>{{item.section}}</td><td>{{item.status}}</td><td>{{item.course}}</td>
 
-                            </tr>
-                        </tbody>
-            </table>
+                              </tr>
+                          </tbody>
+              </table>
 
-            <br>
-            <p align="right"> يمنع الدخول لقاعة الاختبار مصحوبا بالجوال -</p>
-            <p align="right"> لا يقبل الطالب لقاعة الاختبار بعد مرور نصف ساعة من بداية الاختبار -</p>
-            <p align="right"> لا يسمح للطالب بالخروج من قاعة الاختبار قبل مرور نصف الساعة من بداية الاختبار -</p>
-            <h2>ملاحظة: البيانات ليست نهائية وقابلة للتعديل</h2>
-    </main>
+              <br>
+              <p align="right"> يمنع الدخول لقاعة الاختبار مصحوبا بالجوال -</p>
+              <p align="right"> لا يقبل الطالب لقاعة الاختبار بعد مرور نصف ساعة من بداية الاختبار -</p>
+              <p align="right"> لا يسمح للطالب بالخروج من قاعة الاختبار قبل مرور نصف الساعة من بداية الاختبار -</p>
+              <h2>ملاحظة: البيانات ليست نهائية وقابلة للتعديل</h2>
+      </main>
+   </div>
     <footer>
       &copy; mkoubaa@su.edu.sa
     </footer>

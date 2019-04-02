@@ -466,3 +466,19 @@ main li.activetab a {
   width: 100%;
   text-align: center;
 }
+
+@media print {
+body {-webkit-print-color-adjust: exact;}
+}
+
+body > div >h2{
+  text-align: center;
+  font-size: 1.5em;
+  color: #000044;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
