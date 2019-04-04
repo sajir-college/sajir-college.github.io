@@ -51,9 +51,9 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr ng-repeat="item in result | orderBy : 'date' " align="center" ng-init="start=start+1">
+                              <tr ng-repeat="item in result | orderBy : 'date' " align="center" >
                                   <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td>
-                                  <td>{{item.day}}</td><td>{{start}}</td>
+                                  <td>{{item.day}}</td><td>{{$start+1}}</td>
 
                               </tr>
                           </tbody>
