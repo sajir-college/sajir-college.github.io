@@ -48,12 +48,12 @@
                 <center><h3  ng-hide="IsEmpty">التخصص : {{result[0].spec}}</h3></center>
                           <thead  class="list-header">
                               <tr  align="center"  bgcolor="#ccccd8"  font-weight="bold" >
-                                  <th>القاعة</th><th>التوقيت</th><th>التاريخ </th><th>الشعبة</th><th> الحالة</th><th>المقرر</th>
+                                  <th>القاعة</th><th>التوقيت</th><th>التاريخ </th><th>اليوم</th><th>الشعبة</th><th> الحالة</th><th>المقرر</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr ng-repeat="item in result | orderBy : 'date' " align="center" style="{{item.status == 'محروم'  || item.status == 'منسحب' ? 'background-color: red' : ''}}">
-                                  <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td>
+                                  <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td><td>{{item.day}}</td>
                                   <td>{{item.section}}</td><td>{{item.status}}</td><td>{{item.course}}</td>
 
                               </tr>
