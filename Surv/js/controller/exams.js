@@ -28,7 +28,7 @@ todoApp.controller("ExamsCtrl", function ($scope, ExamsFactory) {
 
                 angular.forEach($scope.todo, function(value, key){
 
-                      if(value.id===id){
+                      if(value.ID===id){
                         console.log(value);
 
                             $scope.result.push(value);
