@@ -9,6 +9,7 @@ todoApp.controller('PrintCtrl', function($scope) {
         popupWinindow.document.write('<header><h1>كلية العلوم والآداب بساجر</h1></header>');
         popupWinindow.document.write(innerContents);
         popupWinindow.document.write('<div><h2>أمين لجنة الاختبارات</h2><br><h2>د. حماد حسين حسن</h2></div>');
+        popupWinindow.document.write('<footer>&copy; mkoubaa@su.edu.sa     تصميم: د. محمد نور الدين قوبعة     قسم الحاسب الآلي </footer>');
         popupWinindow.document.write('</html>');
         popupWinindow.document.close();
 
