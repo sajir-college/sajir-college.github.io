@@ -17,29 +17,29 @@
   <body ng-controller="ExamsCtrl">
     <img src="logo-su.png" alt="Logo" class="center">
     <div id="adminWrapper">
-    <header>
-          <h1>كلية العلوم والآداب بساجر</h1>
-    </header>
-    <nav>
-      <p align="right">أدخل الرقم الجامعي ثم اضغط على زر البحث لإظهار جدول الاختبارات</p>
+      <header>
+            <h1>كلية العلوم والآداب بساجر</h1>
+      </header>
+      <nav>
+        <p align="right">أدخل الرقم الجامعي ثم اضغط على زر البحث لإظهار جدول الاختبارات</p>
 
-      <form name='myForm'>
-                  <button class="button" ng-click="selectExams(actionText)" ng-disabled="myForm.myInput.$invalid">بحث</button>
-                  <input name='myInput' ng-model="actionText"  ng-change="IsNotFound=false" required />
-                 <br>
-                 <span ng-show="myForm.myInput.$invalid" align="right"><h3>الرقم الجامعي ضرورى*</h3></span>
-                 <span ng-show="IsNotFound"  align="right"><h3>الرقم الجامعي غير صحيح</h3></span>
+        <form name='myForm'>
+                    <button class="button" ng-click="selectExams(actionText)" ng-disabled="myForm.myInput.$invalid">بحث</button>
+                    <input name='myInput' ng-model="actionText"  ng-change="IsNotFound=false" required />
+                   <br>
+                   <span ng-show="myForm.myInput.$invalid" align="right"><h3>الرقم الجامعي ضرورى*</h3></span>
+                   <span ng-show="IsNotFound"  align="right"><h3>الرقم الجامعي غير صحيح</h3></span>
 
-      </form>
+        </form>
 
-      <!--div id="fin" ng-controller="PrintCtrl"-->
-        <button ng-click="printToCart('printSectionId')" class="button">طباعة</button>
-        <p></p>
-      </div>
+        <!--div id="fin" ng-controller="PrintCtrl"-->
+          <button ng-click="printToCart('printSectionId')" class="button">طباعة</button>
+          <p></p>
+        <!--/div-->
 
-    </nav>
-    <div id="printSectionId">
-      <main>
+      </nav>
+      <div id="printSectionId">
+          <main>
 
 
           <h1 align="center" >جدول الاختبارات النهائية للفصل الثاني ١٤٣٩/ ١٤٤٠ هـ</h1>
@@ -65,9 +65,9 @@
               <p align="right"> لا يقبل الطالب لقاعة الاختبار بعد مرور نصف ساعة من بداية الاختبار -</p>
               <p align="right"> لا يسمح للطالب بالخروج من قاعة الاختبار قبل مرور نصف الساعة من بداية الاختبار -</p>
               <h2>ملاحظة: البيانات ليست نهائية وقابلة للتعديل</h2>
-      </main>
-   </div>
-    <footer>
+          </main>
+      </div>
+      <footer>
       &copy; mkoubaa@su.edu.sa
     </footer>
     </div>
