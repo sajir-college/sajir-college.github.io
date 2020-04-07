@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="MonApp"  xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js" ></script>
+          <script src="https://code.angularjs.org/1.7.8/angular-route.min.js"></script>
+
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+          <link rel="stylesheet" href="style.css">
+          <title></title>
+          <script src="js/app.js"></script>
+          <script src="js/service/factory.js"></script>
+          <script src="js/controller/exams.js"></script>
+          <script src="js/controller/print.js"></script>
+   </head>
+  <body ng-controller="ExamsCtrl">
+    <img src="logo-su.png" alt="Logo" class="center">
+    <div id="adminWrapper">
+      <header>
+            <h1>كلية العلوم والآداب بساجر</h1>
+      </header>
+      <nav>
+        <p align="right">أدخل الرقم الجامعي ثم اضغط على زر البحث لإظهار جدول الاختبارات</p>
+
+        <form name='myForm'>
+                    <button class="button" ng-click="selectExams(actionText)" ng-disabled="myForm.myInput.$invalid">بحث</button>
+                    <input name='myInput' ng-model="actionText"  ng-change="IsNotFound=false" required />
+                   <br>
+                   <span ng-show="myForm.myInput.$invalid" align="right"><h3>الرقم الجامعي ضرورى*</h3></span>
+                   <span ng-show="IsNotFound"  align="right"><h3>الرقم الجامعي غير صحيح</h3></span>
+
+        </form>
+
+        <!--div id="fin" ng-controller="PrintCtrl"-->
+          <button ng-click="printToCart('printSectionId')" class="button">طباعة</button>
+          <p></p>
+        <!--/div-->
+
+      </nav>
+      <div id="printSectionId">
+          <main>
+
+
+          <h1 align="center" >جدول الاختبارات النهائية للفصل الثاني ١٤٤٠/ ١٤٤١ هـ</h1>
+              <table ng-hide="IsEmpty"  class="borderTable">
+                <center><h2  ng-hide="IsEmpty">{{result[0].name}}</h2></center>
+                <center><h3  ng-hide="IsEmpty">التخصص : {{result[0].spec}}</h3></center>
+                          <thead  class="list-header">
+                              <tr  align="center"  bgcolor="#ccccd8"  font-weight="bold" >
+                                  <th>القاعة</th><th>التوقيت</th><th>التاريخ </th><th>اليوم</th><th>الشعبة</th><th> الحالة</th><th>المقرر</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="item in result | orderBy : 'date' " align="center" style="{{item.status == 'محروم'  || item.status == 'منسحب' ? 'background-color: red' : ''}}">
+                                  <td>{{item.room}}</td><td>{{item.time}}</td><td>{{item.date}}</td><td>{{item.day}}</td>
+                                  <td>{{item.section}}</td><td>{{item.status}}</td><td>{{item.course}}</td>
+
+                              </tr>
+                          </tbody>
+              </table>
+
+              <br>
+              <!-- <p align="right"> يمنع الدخول لقاعة الاختبار مصحوبا بالجوال -</p> -->
+              <!-- <p align="right"> لا يقبل الطالب لقاعة الاختبار بعد مرور نصف ساعة من بداية الاختبار -</p> -->
+              <!-- <p align="right"> لا يسمح للطالب بالخروج من قاعة الاختبار قبل مرور نصف الساعة من بداية الاختبار -</p> -->
+              <h2>ملاحظة: البيانات ليست نهائية وقابلة للتعديل</h2>
+              <!-- <h2>ملاحظة: تحيين الحرمان يتم بنهاية دوام يوم الخميس ٠٨/ ٠٤/ ١٤٤١ هـ</h2> -->
+          </main>
+      </div>
+      <footer>&copy; mkoubaa@su.edu.sa     تصميم: د. محمد نور الدين قوبعة     قسم الحاسب الآلي </footer>
+    </div>
+  </body>
+</html>
